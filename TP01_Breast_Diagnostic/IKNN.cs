@@ -1,6 +1,6 @@
 ﻿namespace TP01_Breast_Diagnostic
 {
-    internal interface IKNN
+    interface IKNN
     {
         /*  main methods  */
 
