@@ -9,6 +9,7 @@
         char Predict(Breast sample_to_predict);
 
         /*  utils  */
+        // test
         
         float EuclideanDistance(Breast first_sample, Breast second_sample);
         char Vote(List<char> sorted_labels);
