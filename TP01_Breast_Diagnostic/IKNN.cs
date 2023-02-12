@@ -10,6 +10,7 @@
 
         /*  utils  */
         // test
+        // test 2
         
         float EuclideanDistance(Breast first_sample, Breast second_sample);
         char Vote(List<char> sorted_labels);
