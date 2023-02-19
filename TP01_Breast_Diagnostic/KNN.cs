@@ -1,10 +1,22 @@
-﻿namespace TP01_Breast_Diagnostic;
+﻿using CsvHelper;
+using System.Globalization;
+
+namespace TP01_Breast_Diagnostic;
 
 class KNN : IKNN
 {
     public void Train(string filename_train_samples_csv, int k = 1, int distance = 1)
     {
-        List<Breast> breasts = ImportSamples(filename_train_samples_csv);
+        var breasts = ImportSamples(filename_train_samples_csv);
+        foreach (var breast in breasts)
+        {
+            Console.Write($"{breast.Label} :");
+            foreach (var feature in breast.Features)
+            {
+                Console.Write($" {feature}");
+            }
+            Console.WriteLine();
+        }
     }
 
     public float Evaluate(string filename_test_samples_csv)
@@ -39,6 +51,29 @@ class KNN : IKNN
 
     public List<Breast> ImportSamples(string filename_samples_csv)
     {
-        return new List<Breast>();
+        var breasts = new List<Breast>();
+
+        using (var reader = new StreamReader(filename_samples_csv))
+        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        {
+            csv.Read();
+            csv.ReadHeader();
+            while (csv.Read())
+            {
+                var breast = new Breast();
+
+                breast.Features[0] = csv.GetField<float>("radius_worst");
+                breast.Features[1] = csv.GetField<float>("area_worst");
+                breast.Features[2] = csv.GetField<float>("perimeter_worst");
+                breast.Features[3] = csv.GetField<float>("concave points_worst");
+                breast.Features[4] = csv.GetField<float>("concave points_mean");
+                breast.Features[5] = csv.GetField<float>("perimeter_mean");
+
+                breast.Label = csv.GetField("diagnosis") == "B" ? false : true;
+
+                breasts.Add(breast);
+            }
+        }
+        return breasts;
     }
 }

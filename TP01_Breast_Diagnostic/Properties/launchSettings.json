@@ -2,7 +2,7 @@
   "profiles": {
     "TP01_Breast_Diagnostic": {
       "commandName": "Project",
-      "commandLineArgs": "-e test_file.csv -t train_file.csv -k 4"
+      "commandLineArgs": "-e test_file.csv -t C:\\Users\\jerem\\Projects\\UQAR\\TP01_Breast_Diagnostic\\TP01_Breast_Diagnostic\\data\\train.csv -k 4"
     }
   }
 }

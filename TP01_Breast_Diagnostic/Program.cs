@@ -24,16 +24,25 @@ class Program
 
     static int kValue;
 
+    static KNN knn = new KNN();
+
     static void Main(string[] arguments)
     {
         ParseArguments(arguments);
 
         if (ValidateArguments())
         {
-            Console.WriteLine(mode);
-            Console.WriteLine(dataFile);
-            Console.WriteLine(trainFile);
-            Console.WriteLine(kValue);
+            knn.Train(trainFile, kValue);
+
+            if (mode == Mode.Evaluation)
+            {
+                knn.Evaluate(dataFile);
+            }
+            if (mode == Mode.Prediction)
+            {
+                Breast sample = GetRandomSample(dataFile);
+                knn.Predict(sample);
+            }
         }
     }
 
@@ -122,5 +131,11 @@ class Program
         }
 
         return true;
+    }
+
+    static Breast GetRandomSample(string dataFile)
+    {
+        var samples = knn.ImportSamples(dataFile);
+        return samples[new Random().Next(samples.Count)];
     }
 }
