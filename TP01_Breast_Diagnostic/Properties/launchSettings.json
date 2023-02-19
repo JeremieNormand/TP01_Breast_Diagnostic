@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TP01_Breast_Diagnostic": {
+      "commandName": "Project",
+      "commandLineArgs": "-e test_file.csv -t train_file.csv -k 4"
+    }
+  }
+}

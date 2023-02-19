@@ -1,9 +1,8 @@
-﻿namespace TP01_Breast_Diagnostic
+﻿namespace TP01_Breast_Diagnostic;
+
+interface IData
 {
-    interface IData
-    {
-        float[] Features { get; }
-        bool Label { get; }
-        void PrintInfo();
-    }
+    float[] Features { get; }
+    bool Label { get; }
+    void PrintInfo();
 }

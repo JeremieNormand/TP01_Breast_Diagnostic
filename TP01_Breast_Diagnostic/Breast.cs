@@ -1,10 +1,6 @@
-﻿namespace TP01_Breast_Diagnostic
-{
-    class Breast
-    {
- 
-    }
+﻿namespace TP01_Breast_Diagnostic;
 
-    // test 3
-    // test 4
+class Breast
+{
+
 }
