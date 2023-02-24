@@ -1,10 +1,16 @@
 ﻿namespace TP01_Breast_Diagnostic
 {
-    class Breast
+    internal class Breast : IData
     {
- 
-    }
+        public Breast(float[] Features, char Label)
+        {
 
-    // test 3
-    // test 4
+        }
+
+        public float[] Features { get; }
+        public char Label { get; }
+        public void PrintInfo() { }
+
+    }
 }
+
