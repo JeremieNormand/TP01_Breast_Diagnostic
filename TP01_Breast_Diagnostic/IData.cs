@@ -3,7 +3,7 @@
     interface IData
     {
         float[] Features { get; }
-        bool Label { get; }
+        char Label { get; }
         void PrintInfo();
     }
 }

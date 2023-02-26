@@ -2,14 +2,19 @@
 {
     internal class Breast : IData
     {
-        public Breast(float[] Features, char Label)
-        {
-
-        }
-
+       
+       
         public float[] Features { get; }
         public char Label { get; }
+
+        public Breast(float[] features, char label)
+        {
+            Features = features;
+            Label = label;
+        }
+
         public void PrintInfo() { }
+
 
     }
 }
