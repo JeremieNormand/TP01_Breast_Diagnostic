@@ -36,14 +36,16 @@ class Program
 
             if (mode == Mode.Evaluation)
             {
-                knn.Evaluate(dataFile);
+                Console.WriteLine($"Recognition rate : {knn.Evaluate(dataFile)}");
             }
             if (mode == Mode.Prediction)
             {
                 Breast sample = GetRandomSample(dataFile);
-                knn.Predict(sample);
+                Console.WriteLine($"Expected : {(sample.Label == true ? 'M' : 'B')}, Actual : {knn.Predict(sample)}");
             }
         }
+        else
+            Console.WriteLine("Invalid argument");
     }
 
     static void ParseArguments(string[] arguments)
