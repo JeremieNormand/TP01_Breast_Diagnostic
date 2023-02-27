@@ -36,7 +36,7 @@ class Program
 
             if (mode == Mode.Evaluation)
             {
-                Console.WriteLine($"Recognition rate : {knn.Evaluate(dataFile)}");
+                Console.WriteLine($"Classification Accuracy -> {knn.Evaluate(dataFile)} %");
             }
             if (mode == Mode.Prediction)
             {

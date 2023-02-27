@@ -92,10 +92,25 @@ class KNN : IKNN
 
     public void ConfusionMatrix(List<char> predicted_labels, List<char> expert_labels, char[] labels)
     {
-        
+        var matrix = new int[labels.Length, labels.Length];
+        for (int idx = 0; idx < predicted_labels.Count; idx++)
+        {
+            if (predicted_labels[idx] == labels[0] && expert_labels[idx] == labels[0])
+                matrix[0, 0]++;
+            if (predicted_labels[idx] == labels[1] && expert_labels[idx] == labels[1])
+                matrix[1, 1]++;
+            if (predicted_labels[idx] == labels[0] && expert_labels[idx] == labels[1])
+                matrix[0, 1]++;
+            if (predicted_labels[idx] == labels[1] && expert_labels[idx] == labels[0])
+                matrix[1, 0]++;
+        }
 
         Console.WriteLine("Confusion Matrix :");
-
+        Console.WriteLine();
+        Console.WriteLine($"{"", -4}{labels[0], 8}{labels[1], 8}");
+        Console.WriteLine($"{labels[0], -4}{matrix[0, 0], 8}{matrix[0, 1], 8}");
+        Console.WriteLine($"{labels[1], -4}{matrix[1, 0], 8}{matrix[1, 1], 8}");
+        Console.WriteLine();
     }
 
     public void ShellSort(List<float> distances, List<char> labels)
