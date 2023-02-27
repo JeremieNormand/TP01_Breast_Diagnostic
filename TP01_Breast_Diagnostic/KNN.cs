@@ -22,7 +22,20 @@ class KNN : IKNN
     public float Evaluate(string filename_test_samples_csv)
     {
         var testBreasts = ImportSamples(filename_test_samples_csv);
-        return 0;
+
+        var predicted_labels = new List<char>();
+        var expert_labels = new List<char>();
+        float predicted = 0;
+        for (int idx = 0; idx < testBreasts.Count; idx++)
+        {
+            predicted_labels.Add(Predict(testBreasts[idx]));
+            expert_labels.Add(testBreasts[idx].Label == true ? 'M' : 'B');
+            if (predicted_labels[idx] == expert_labels[idx]) predicted++;
+        }
+
+        ConfusionMatrix(predicted_labels, expert_labels, new char[2] { 'M', 'B'} );
+
+        return predicted / testBreasts.Count;
     }
 
     public char Predict(Breast sample_to_predict)
@@ -79,6 +92,9 @@ class KNN : IKNN
 
     public void ConfusionMatrix(List<char> predicted_labels, List<char> expert_labels, char[] labels)
     {
+        
+
+        Console.WriteLine("Confusion Matrix :");
 
     }
 
