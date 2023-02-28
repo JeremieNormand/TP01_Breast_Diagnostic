@@ -100,9 +100,9 @@ class KNN : IKNN
             if (predicted_labels[idx] == labels[1] && expert_labels[idx] == labels[1])
                 matrix[1, 1]++;
             if (predicted_labels[idx] == labels[0] && expert_labels[idx] == labels[1])
-                matrix[0, 1]++;
-            if (predicted_labels[idx] == labels[1] && expert_labels[idx] == labels[0])
                 matrix[1, 0]++;
+            if (predicted_labels[idx] == labels[1] && expert_labels[idx] == labels[0])
+                matrix[0, 1]++;
         }
 
         Console.WriteLine("Confusion Matrix :");

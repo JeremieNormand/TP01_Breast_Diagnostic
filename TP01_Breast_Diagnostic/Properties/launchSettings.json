@@ -2,7 +2,7 @@
   "profiles": {
     "TP01_Breast_Diagnostic": {
       "commandName": "Project",
-      "commandLineArgs": "-p C:\\Users\\jerem\\Projects\\UQAR\\TP01_Breast_Diagnostic\\TP01_Breast_Diagnostic\\data\\samples.csv -t C:\\Users\\jerem\\Projects\\UQAR\\TP01_Breast_Diagnostic\\TP01_Breast_Diagnostic\\data\\train.csv -k 4"
+      "commandLineArgs": "-e C:\\Users\\jerem\\Projects\\UQAR\\TP01_Breast_Diagnostic\\TP01_Breast_Diagnostic\\data\\test.csv -t C:\\Users\\jerem\\Projects\\UQAR\\TP01_Breast_Diagnostic\\TP01_Breast_Diagnostic\\data\\train.csv -k 5"
     }
   }
 }
