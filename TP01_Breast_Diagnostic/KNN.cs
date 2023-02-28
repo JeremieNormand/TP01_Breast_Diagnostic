@@ -115,17 +115,38 @@ class KNN : IKNN
 
     public void ShellSort(List<float> distances, List<char> labels)
     {
-        var pairs = new List<(float distance, char label)>();
+        var tuples = new List<(float distance, char label)>();
         for (int i = 0; i < distances.Count; i++)
         {
-            pairs.Add((distances[i], labels[i]));
+            tuples.Add((distances[i], labels[i]));
         }
-        
-        pairs.Sort((p1, p2) => p1.distance.CompareTo(p2.distance));
-        for (int i = 0; i < pairs.Count; i++)
+
+        int step = 0;
+        while (step < tuples.Count)
         {
-            distances[i] = pairs[i].distance;
-            labels[i] = pairs[i].label;
+            step = 3 * step + 1;
+        }
+
+        while (step > 0)
+        {
+            step = step / 3;
+            for (int i = step; i < tuples.Count; i++)
+            {
+                (float distance, char label) temporary = tuples[i];
+                int j = i;
+                while (j > step - 1 && tuples[j - step].distance > temporary.distance)
+                {
+                    tuples[j] = tuples[j - step];
+                    j = j - step;
+                }
+                tuples[j] = temporary;
+            }
+        }
+
+        for (int i = 0; i < tuples.Count; i++)
+        {
+            distances[i] = tuples[i].distance;
+            labels[i] = tuples[i].label;
         }
     }
 

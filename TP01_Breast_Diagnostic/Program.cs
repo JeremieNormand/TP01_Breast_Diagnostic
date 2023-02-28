@@ -40,8 +40,12 @@ class Program
             }
             if (mode == Mode.Prediction)
             {
-                Breast sample = GetRandomSample(dataFile);
-                Console.WriteLine($"Expected : {(sample.Label == true ? 'M' : 'B')}, Actual : {knn.Predict(sample)}");
+                int index;
+                Breast sample = GetRandomSample(dataFile, out index);
+                Console.Write($"[sample {index:DD}] ");
+                Console.Write($"Prediction by model -> {(sample.Label == true ? 'M' : 'B')} |");
+                Console.Write($"by expert -> {knn.Predict(sample)}");
+                Console.WriteLine();
             }
         }
         else
@@ -135,9 +139,10 @@ class Program
         return true;
     }
 
-    static Breast GetRandomSample(string dataFile)
+    static Breast GetRandomSample(string dataFile, out int index)
     {
         var samples = knn.ImportSamples(dataFile);
-        return samples[new Random().Next(samples.Count)];
+        index = new Random().Next(samples.Count);
+        return samples[index];
     }
 }
