@@ -42,8 +42,8 @@ class Program
             {
                 int index;
                 Breast sample = GetRandomSample(dataFile, out index);
-                Console.Write($"[sample {index:DD}] ");
-                Console.Write($"Prediction by model -> {(sample.Label == true ? 'M' : 'B')} |");
+                Console.Write($"[sample {index:D2}] ");
+                Console.Write($"Prediction by model -> {(sample.Label == true ? 'M' : 'B')} | ");
                 Console.Write($"by expert -> {knn.Predict(sample)}");
                 Console.WriteLine();
             }
