@@ -35,7 +35,7 @@ class KNN : IKNN
 
         ConfusionMatrix(predicted_labels, expert_labels, new char[2] { 'M', 'B'} );
 
-        return predicted / testBreasts.Count;
+        return predicted / testBreasts.Count * 100;
     }
 
     public char Predict(Breast sample_to_predict)
