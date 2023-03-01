@@ -9,7 +9,7 @@ interface IKNN
     char Predict(Breast sample_to_predict);
 
     /*  utils  */
-    
+
     float EuclideanDistance(Breast first_sample, Breast second_sample);
     char Vote(List<char> sorted_labels);
     void ConfusionMatrix(List<char> predicted_labels, List<char> expert_labels, char[] labels);

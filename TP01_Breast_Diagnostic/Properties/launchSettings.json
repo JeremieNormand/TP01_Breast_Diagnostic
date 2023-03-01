@@ -2,7 +2,7 @@
   "profiles": {
     "TP01_Breast_Diagnostic": {
       "commandName": "Project",
-      "commandLineArgs": "-e ../../../data/test.csv -t ../../../data/train.csv -k 5"
+      "commandLineArgs": "-p ../../../data/samples.csv -t ../../../data/train.csv -k 5"
     }
   }
 }
